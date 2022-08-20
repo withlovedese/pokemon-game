@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Press Start 2P', cursive;
+        }
+        body{
+            background-color: black;
+        }
+        button {
+            border: 0;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover{
+            background-color: #CFF5F5;
+            padding: 12px;
+        }
+    </style>
+    <title>Pokemon Mini Game</title>
+</head>
+<body>
+    
+    <div style="display: inline-block; position: relative;">
+        <div style="
+            background-color: black; 
+            position: absolute; 
+            top: 0; 
+            bottom: 0; 
+            left: 0; 
+            right: 0; 
+            opacity: 0; 
+            pointer-events: none;
+            z-index: 10;
+            " 
+            id="overlay"></div> <!-- pointer events none ensure that div is not clickable so it doesnt get in the way of our canvas -->
+        <canvas></canvas>
+        <div id="userInterface" style="display: none;">
+            <!-- health bar of draggle -->
+            <div style="
+            background-color: white; 
+            width: 350px;  
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            border: 4px solid black;
+            padding: 10px;
+        ">
+            <h1 style="font-size: 16px;">Draggle</h1>
+            <div style="position:relative">
+                <div style="background-color: #ccc; height:5px; margin-top: 10px;"></div>
+                <div id="enemyHealthBar" style="
+                    background-color: rgb(111, 205, 111); 
+                    height:5px; 
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                "></div>
+            </div>
+        
+            </div>
+            <!-- health bar of emby -->
+            <div style="
+                    background-color: white; 
+                    width: 350px;  
+                    position: absolute;
+                    top: 300px;
+                    right: 50px;
+                    border: 4px solid black;
+                    padding: 10px;
+                ">
+                    <h1 style="font-size: 16px;">Emby</h1>
+                    <div style="position:relative">
+                        <div style="background-color: #ccc; height:5px; margin-top: 10px;"></div>
+                        <div id="myHealthBar" style="
+                            background-color: rgb(111, 205, 111); 
+                            height:5px; 
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                        "></div>
+                    </div>
+            </div>
+            <div 
+            style="
+                background-color: white; 
+                height: 140px; 
+                position: absolute; 
+                bottom: 0;
+                left: 0;
+                right: 0;
+                border-top: 5px solid black;
+                display: flex;" 
+            >
+                <div
+                id="dialogueBox" 
+                style="
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background-color: #CFF5F5;
+                    padding: 12px;
+                    display: none;
+                ">hihihih</div>
+                <div id="attacksBox" style="width: 66.66%; display: grid; grid-template-columns: repeat(2, 1fr);">
+                    
+                </div>
+                <div style="display: flex; align-items: center; width: 33.33%; justify-content: center; border-left: 5px black solid;">
+                    <h1 style="font-size: 16px" id="attackType">Attack Type</h1>
+                </div>
+
+            </div> <!-- bottom:0  we want our div 0 pixels from the bottom of our parent element -->
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js" integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js" integrity="sha512-GQ5/eIhs41UXpG6fGo4xQBpwSEj9RrBvMuKyE2h/2vw3a9x85T1Bt0JglOUVJJLeyIUl/S/kCdDXlE/n7zCjIg==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    ></script>
+    <script src="./data/audio.js"></script>
+    <script src="./data/battlezones.js"></script>
+    <script src="./data/collisions.js"></script>
+    <script src="./data/attacks.js"></script>
+    <script src="./data/monster.js"></script>
+    <script src="classes.js"></script>
+    <script src="index.js"></script>
+    <script src="battleScene.js"></script>
+</body>
+</html>
